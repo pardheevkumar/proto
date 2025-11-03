@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Srinidhi! 🎉</title>
+    <link rel="icon" type="image/jpeg" href="favicon.jpg">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Audio -->
+    <audio id="bgMusic" loop>
+        <source src="hbd.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Cursor Trail -->
+    <canvas id="cursorCanvas"></canvas>
+
+    <!-- Particle Background -->
+    <div class="particles-container" id="particles"></div>
+    
+    <!-- Floating Hearts Background -->
+    <div class="hearts-container" id="hearts"></div>
+
+    <!-- Stars Background -->
+    <div class="stars-container" id="stars"></div>
+
+    <!-- Main Container -->
+    <div class="main-container" id="mainContainer">
+        
+        <!-- Scene 1: Greeting -->
+        <div class="scene active" id="scene1">
+            <div class="content-wrapper">
+                <h1 class="greeting-text">
+                    <span class="word">I</span>
+                    <span class="word">really</span>
+                    <span class="word">like</span>
+                    <span class="word">your</span>
+                    <span class="word">name</span>
+                    <span class="word">btw!</span>
+                </h1>
+                <div class="name-display">
+                    <span class="name-letter">S</span>
+                    <span class="name-letter">r</span>
+                    <span class="name-letter">i</span>
+                    <span class="name-letter">n</span>
+                    <span class="name-letter">i</span>
+                    <span class="name-letter">d</span>
+                    <span class="name-letter">h</span>
+                    <span class="name-letter">i</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 2: Birthday Announcement -->
+        <div class="scene" id="scene2">
+            <div class="content-wrapper">
+                <h1 class="birthday-announcement">
+                    <span class="bounce-word">It's</span>
+                    <span class="bounce-word">your</span>
+                    <span class="bounce-word">birthday!!</span>
+                    <span class="bounce-word emoji-big">:D</span>
+                </h1>
+                <div class="confetti-burst" id="confettiBurst1"></div>
+            </div>
+        </div>
+
+        <!-- Scene 3: Chat Message -->
+        <div class="scene" id="scene3">
+            <div class="content-wrapper">
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <div class="chat-avatar">🎉</div>
+                        <div class="chat-info">
+                            <div class="chat-name">Birthday Wishes</div>
+                            <div class="chat-status">typing...</div>
+                        </div>
+                    </div>
+                    <div class="chat-body">
+                        <div class="message-bubble" id="messageBubble">
+                            <p id="typedMessage"></p>
+                            <div class="typing-indicator" id="typingIndicator">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="message-time">Just now</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 4: Transition 1 -->
+        <div class="scene" id="scene4">
+            <div class="content-wrapper">
+                <h2 class="transition-text fade-in-text">
+                    That's what I was going to do.
+                </h2>
+            </div>
+        </div>
+
+        <!-- Scene 5: Transition 2 -->
+        <div class="scene" id="scene5">
+            <div class="content-wrapper">
+                <h2 class="transition-text fade-in-text">
+                    But then I stopped.
+                </h2>
+            </div>
+        </div>
+
+        <!-- Scene 6: Transition 3 -->
+        <div class="scene" id="scene6">
+            <div class="content-wrapper">
+                <h2 class="transition-text">
+                    <span class="word-fade">I</span>
+                    <span class="word-fade">realised,</span>
+                    <span class="word-fade">I</span>
+                    <span class="word-fade">wanted</span>
+                    <span class="word-fade">to</span>
+                    <span class="word-fade">do</span>
+                    <span class="word-fade">something</span>
+                </h2>
+            </div>
+        </div>
+
+        <!-- Scene 7: Special Word -->
+        <div class="scene" id="scene7">
+            <div class="content-wrapper">
+                <h1 class="special-word" id="specialWord">
+                    special
+                </h1>
+                <div class="sparkles-container" id="sparklesContainer"></div>
+            </div>
+        </div>
+
+        <!-- Scene 8: Reason -->
+        <div class="scene" id="scene8">
+            <div class="content-wrapper">
+                <h2 class="transition-text fade-in-text">
+                    Because,
+                </h2>
+            </div>
+        </div>
+
+        <!-- Scene 9: You are Special -->
+        <div class="scene" id="scene9">
+            <div class="content-wrapper">
+                <h1 class="you-special">
+                    <span class="you-special-word">You</span>
+                    <span class="you-special-word">are</span>
+                    <span class="you-special-word special-highlight">Special</span>
+                    <span class="you-special-word">:)</span>
+                </h1>
+                <div class="floating-hearts-special" id="floatingHeartsSpecial"></div>
+            </div>
+        </div>
+
+        <!-- Scene 10: Letter Animation -->
+        <div class="scene" id="scene10">
+            <div class="content-wrapper">
+                <div class="rotating-letters">
+                    <span class="big-letter letter-s">S</span>
+                    <span class="big-letter letter-o">O</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 11: Photo Reveal -->
+        <div class="scene" id="scene11">
+            <div class="content-wrapper">
+                <div class="photo-celebration">
+                    <!-- Balloons -->
+                    <img src="ballon1.jpg" class="balloon balloon-1" alt="Balloon">
+                    <img src="ballon2.jpg" class="balloon balloon-2" alt="Balloon">
+                    <img src="ballon3.jpg" class="balloon balloon-3" alt="Balloon">
+                    
+                    <!-- Photo Frame -->
+                    <div class="photo-frame">
+                        <div class="frame-corner corner-tl"></div>
+                        <div class="frame-corner corner-tr"></div>
+                        <div class="frame-corner corner-bl"></div>
+                        <div class="frame-corner corner-br"></div>
+                        <div class="photo-glow"></div>
+                        <img src="srinidhi.jpg" class="profile-photo" alt="Srinidhi">
+                        <img src="hat.jpg" class="party-hat" alt="Party Hat">
+                    </div>
+                    
+                    <!-- Name Tag -->
+                    <div class="name-tag">
+                        <span class="name-tag-text">Srinidhi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 12: Happy Birthday -->
+        <div class="scene" id="scene12">
+            <div class="content-wrapper">
+                <div class="happy-birthday-container">
+                    <div class="birthday-text-3d">
+                        <span class="bd-letter" style="--i:0">H</span>
+                        <span class="bd-letter" style="--i:1">A</span>
+                        <span class="bd-letter" style="--i:2">P</span>
+                        <span class="bd-letter" style="--i:3">P</span>
+                        <span class="bd-letter" style="--i:4">Y</span>
+                        <span class="bd-space"></span>
+                        <span class="bd-letter" style="--i:5">B</span>
+                        <span class="bd-letter" style="--i:6">I</span>
+                        <span class="bd-letter" style="--i:7">R</span>
+                        <span class="bd-letter" style="--i:8">T</span>
+                        <span class="bd-letter" style="--i:9">H</span>
+                        <span class="bd-letter" style="--i:10">D</span>
+                        <span class="bd-letter" style="--i:11">A</span>
+                        <span class="bd-letter" style="--i:12">Y</span>
+                    </div>
+                    <div class="birthday-emojis">
+                        <span class="emoji-float">🎂</span>
+                        <span class="emoji-float">🎉</span>
+                        <span class="emoji-float">🎈</span>
+                        <span class="emoji-float">✨</span>
+                        <span class="emoji-float">🎊</span>
+                    </div>
+                </div>
+                <canvas id="fireworksCanvas"></canvas>
+                <div class="confetti-burst" id="confettiBurst2"></div>
+            </div>
+        </div>
+
+        <!-- Scene 13: Closing -->
+        <div class="scene" id="scene13">
+            <div class="content-wrapper">
+                <h2 class="closing-text fade-in-text">
+                    Okay, now come back and tell me if you liked it.
+                </h2>
+            </div>
+        </div>
+
+        <!-- Scene 14: Replay -->
+        <div class="scene" id="scene14">
+            <div class="content-wrapper">
+                <p class="replay-text">Or click, if you want to watch it again.</p>
+                <button class="replay-button" id="replayButton">
+                    <svg class="replay-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+                        <path d="M21 3v5h-5"></path>
+                        <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+                        <path d="M3 21v-5h5"></path>
+                    </svg>
+                    Replay :)
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
